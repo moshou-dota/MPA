@@ -14,7 +14,7 @@ const Env = require('../config/prod.env')
 const WebpackConfig = Merge(BaseWebpackConfig, {
   mode: 'production',
   module: {
-    rules: Utils.styleLoaders({ sourceMap: Config.build.productionSourceMap, usePostCss: true, extract: true })
+    rules: Utils.styleLoaders({ sourceMap: Config.build.productionSourceMap, usePostCSS: true, extract: true })
   },
   devtool: Config.build.productionSourceMap ? Config.build.devtool : false,
   output: {

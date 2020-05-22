@@ -67,10 +67,11 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: 'js/[name].js',
-    chunkFilename: 'js/[name].chunk.js', // 他让各自页面需要引用的 js 文件放在dist的js目录下
-    publicPath: process.env.NODE_ENV === 'production' ?
-      config.build.assetsPublicPath : // 静态资源的目录源
-      config.dev.assetsPublicPath  // 配置发布到线上资源的 URL 前缀，为string 类型。 默认值是空字符串 ''，即使用相对路径
+    chunkFilename: 'js/[id].chunk.js', // 他让各自页面需要引用的 js 文件放在dist的js目录下
+    publicPath: process.env.NODE_ENV === 'production' ? // 用于加载 按需加载或外部资源的内容
+      config.build.assetsPublicPath : // 此选项指定在浏览器中所引用的「此输出目录对应的公开 URL」。相对 URL(relative URL) 会被相对于 HTML 页面（或 <base> 标签）解析
+      config.dev.assetsPublicPath // 该选项的值是以 runtime(运行时) 或 loader(载入时) 所创建的每个 URL 为前缀。因此，在多数情况下，此选项的值都会以/结束。
+      // webpack-dev-server 也会默认从 publicPath 为基准，使用它来决定在哪个目录下启用服务，来访问 webpack 输出的文件。
   },
   resolve: {
     extensions: ['.js'],

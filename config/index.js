@@ -14,7 +14,7 @@ module.exports = {
 
     devtool: 'eval-source-map',
 
-    cssSourceMap: false,
+    cssSourceMap: true,
   },
   build: {
     index: Path.resolve(__dirname, '../dist/index.html'),

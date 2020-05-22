@@ -18,7 +18,7 @@ exports.cssLoaders = function (options = {}) {
   }
 
   function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS? [postcssLoader, cssLoader]: [cssLoader]
+    const loaders = options.usePostCSS? [cssLoader, postcssLoader]: [cssLoader]
     if (loader) {
       loaders.push({
         loader: `${loader}-loader`,
@@ -55,6 +55,7 @@ exports.styleLoaders = function (options) {
       use: loader
     })
   }
+  console.log(output)
   return output
 }
 
