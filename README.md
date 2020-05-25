@@ -8,4 +8,22 @@ ps：可以更用更简单的方式查看生成在内存中的各资源地址：
 
 ## 后续优化
 1. 如何直接打开首页
-2. 理清output，devServer 中的 publichPath，contbase等配置的意思
+`
+  // 这里我的目的是用于多页面，首页地址的重定向
+  // 在devServer中添加如下配置
+  historyApiFallback: {
+    rewrites: [
+      {
+        from: /^\/.*/,
+        to: function (context) {
+          return `/html/${context.parsedUrl.pathname}`
+        }
+      },
+    ]
+  }
+`
+2. 理清output，devServer 中的 publicPath，contbase等配置的意思
+output.publicPath: 用于修改静态资源URL，主要是给url-loader, mini-css-extract-plugin等这些分离的静态资源的URL作为参考，
+如可以设置为相对于HTML文件的路径，相对于服务器的绝对路径等
+devServer.publicPath: 作用类似于 output.publicPath，只不过其作用范围只针对webpack-dev-server，优先级高于 contbase
+devServer.contentbase: 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。
