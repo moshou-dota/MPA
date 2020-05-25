@@ -32,18 +32,23 @@ const DevWebpackConfig = Merge(BaseWebpackConfig, {
   devServer: {
     hot: true,
     overlay: true,//出现错误之后会在页面中出现遮罩层提示
-    // historyApiFallback: true,//true默认打开index.html，false会出现一个目录，一会演示
-    // historyApiFallback: { // 这里我的目的是用于多页面，首页地址的重定向
-    //   rewrites: [
-    //     { from: /^\/$/, to: '/html' },
-    //   ]
-    // },
     host: HOST || Config.dev.host || '127.0.0.1',
     port: PORT || Config.dev.post || '8080', //默认是8080
     open: Config.dev.autoOpenBrowser,
     inline: true, //默认开启 inline 模式，如果设置为false,开启 iframe 模式
-    publicPath:'/', // devServer.publicPath 将用于确定应该从哪里提供 bundle，并且此选项优先，默认值：/。优先级高于contentBase
+    publicPath: '/', // devServer.publicPath 将用于确定应该从哪里提供 bundle，并且此选项优先，默认值：/。优先级高于contentBase
     // contentBase: './html', //contentBase 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。
+    // historyApiFallback: true,//true默认打开index.html，false会出现一个目录，一会演示
+    // historyApiFallback: { // 这里我的目的是用于多页面，首页地址的重定向
+    //   rewrites: [
+    //     {
+    //       from: /^\/.*/,
+    //       to: function (context) {
+    //         return `/html/${context.parsedUrl.pathname}`
+    //       }
+    //     },
+    //   ]
+    // },
   }
 })
 

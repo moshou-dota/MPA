@@ -27,8 +27,6 @@ const WebpackConfig = Merge(BaseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: Utils.assetsPath('css/[name].[contenthash].css'),
       allChunks: false,
-      // css中的基础路径
-      publicPath: "../"
     }),
     // css代码压缩
     new OptimizeCSSPlugin({

@@ -104,7 +104,7 @@ module.exports = {
         options: {
           limit: 10000,
           // 图片文件输出的文件夹
-          // publicPath: "/../",
+          // publicPath: process.env.NODE_ENV === 'production'? '../': '',
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },

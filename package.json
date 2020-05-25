@@ -4,7 +4,7 @@
   "description": "多页面应用",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "webpack-dev-server",
     "start": "npm run dev",
     "build": "node build/build.js",
     "dev": "webpack-dev-server --open --progress --config build/webpack.dev.conf.js"

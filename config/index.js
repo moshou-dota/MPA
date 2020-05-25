@@ -2,7 +2,7 @@ const Path = require('path')
 
 module.exports = {
   dev: {
-    assetsPublicPath: '',
+    assetsPublicPath: '../',
     assetsSubDirectory: '',
 
     showEslintErrorsInOverlay: false,
@@ -20,7 +20,7 @@ module.exports = {
     index: Path.resolve(__dirname, '../dist/index.html'),
 
     assetsRoot: Path.resolve(__dirname, '../dist'),
-    assetsPublicPath: '',
+    assetsPublicPath: '../',
     assetsSubDirectory: 'assets',
 
     devtool: '#source-map',
