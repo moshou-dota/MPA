@@ -6,8 +6,6 @@ const BaseWebpackConfig = require('./webpack.base.conf')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-//静态资源输出
-const copyWebpackPlugin = require("copy-webpack-plugin");
 
 const Env = require('../config/prod.env')
 
@@ -29,6 +27,8 @@ const WebpackConfig = Merge(BaseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: Utils.assetsPath('css/[name].[contenthash].css'),
       allChunks: false,
+      // css中的基础路径
+      publicPath: "../"
     }),
     // css代码压缩
     new OptimizeCSSPlugin({

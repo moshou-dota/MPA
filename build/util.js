@@ -30,7 +30,7 @@ exports.cssLoaders = function (options = {}) {
 
     if (options.extract) {
       return [{
-        loader: MiniCssExtractPlugin.loader,
+        loader: MiniCssExtractPlugin.loader
       }].concat(loaders)
     } else {
       return ['style-loader'].concat(loaders)
@@ -55,7 +55,6 @@ exports.styleLoaders = function (options) {
       use: loader
     })
   }
-  console.log(output)
   return output
 }
 

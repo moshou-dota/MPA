@@ -33,11 +33,11 @@ const DevWebpackConfig = Merge(BaseWebpackConfig, {
     hot: true,
     overlay: true,//出现错误之后会在页面中出现遮罩层提示
     // historyApiFallback: true,//true默认打开index.html，false会出现一个目录，一会演示
-    historyApiFallback: { // 这里我的目的是用于多页面，首页地址的重定向
-      rewrites: [
-        { from: /^\/$/, to: '/html' },
-      ]
-    },
+    // historyApiFallback: { // 这里我的目的是用于多页面，首页地址的重定向
+    //   rewrites: [
+    //     { from: /^\/$/, to: '/html' },
+    //   ]
+    // },
     host: HOST || Config.dev.host || '127.0.0.1',
     port: PORT || Config.dev.post || '8080', //默认是8080
     open: Config.dev.autoOpenBrowser,
@@ -46,8 +46,6 @@ const DevWebpackConfig = Merge(BaseWebpackConfig, {
     // contentBase: './html', //contentBase 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。
   }
 })
-
-// console.log(JSON.stringify(DevWebpackConfig.module))
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = DevWebpackConfig.devServer.port
