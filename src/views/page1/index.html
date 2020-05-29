@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>page1</title>
 </head>
+
 <body>
   <p id="p">this is page1</p>
+  <div id="app"></div>
   <a href="./index.html"> to index page</a>
+  <script id="classify" type="text/x-handlebars-template">
+    <div class="entry">
+      <h1>{{title}}</h1>
+      <div class="body">
+        {{body}}
+      </div>
+    </div>
+    </script>
+
 </body>
+
 </html>

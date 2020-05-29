@@ -94,6 +94,16 @@ module.exports = {
         }]
       },
       {
+        test: require.resolve('art-template'), //require.resolve 用来获取模块的绝对路径
+        use: [{
+          loader: 'expose-loader',
+          options: 'TMPL'
+        }, {
+          loader: 'expose-loader',
+          options: '$tmpl'
+        }]
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src')]
