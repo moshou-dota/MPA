@@ -6,6 +6,10 @@
   <title>首页</title>
 </head>
 <body>
+  <!-- 引入公共头部的第二种方法，注意，使用html-loader引入外部html时，必须禁用全局的html-loader，此时对于html中的图片，就需要放在static文件夹中使用 -->
+  <!-- 第一种方法，见vue分支 -->
+  <div id="header"></div>
+  <%= require('html-loader!../../public/header.html')%>
   <p style="background-image: url('../assets/images/4.jpg');">this is index page</p>
   <div class="alert alert-primary" role="alert">
     A simple primary alert—check it out!
@@ -13,13 +17,14 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../../assets/images/1.jpg" class="d-block w-100" alt="...">
+        <img src="/static/images/1.jpg" class="d-block w-100" alt="...">
+        <!-- <img src="../../assets/images/1.jpg" class="d-block w-100" alt="..."> -->
       </div>
       <div class="carousel-item">
-        <img src="../../assets/images/2.jpg" class="d-block w-100" alt="...">
+        <img src="/static/images/2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="../../assets/images/3.jpg" class="d-block w-100" alt="...">
+        <img src="/static/images/3.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

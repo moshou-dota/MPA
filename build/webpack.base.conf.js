@@ -114,24 +114,24 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            attributes: true,
-            minimize: process.env.NODE_ENV === 'production'
-          }
-        }
-      }
+      // {
+      //   test: /\.html$/,
+      //   use: {
+      //     loader: 'html-loader',
+      //     options: {
+      //       attributes: true,
+      //       minimize: process.env.NODE_ENV === 'production'
+      //     }
+      //   }
+      // }
     ]
   },
   plugins: [
     new copyWebpackPlugin({
       patterns: [
         { // 将根目录static中的所有内容复制到dist/static目录下
-          from: resolve('static/'),
-          to: resolve('dist/static/[name].[ext]')
+          from: resolve('static'),
+          to: resolve('dist/static')
         }
       ]
     }),
