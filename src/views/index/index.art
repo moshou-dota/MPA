@@ -6,7 +6,6 @@
   <title>首页</title>
 </head>
 <body>
-  <div id="app"></div>
   <p style="background-image: url('../assets/images/4.jpg');">this is index page</p>
   <div class="alert alert-primary" role="alert">
     A simple primary alert—check it out!
@@ -32,9 +31,22 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  <% include('../../public/header.art') %>
+
+<% if (user) { %>
+  <h2><%= user.name %></h2>
+<% } %>
+<p><img src="../../assets/images/1.jpg" alt="octocat"></p>
+<div id="container"></div>
+<% include('./footer.art') %>
   <div id="banner-message">
     <button> button </button>
   </div>
   <a href="./page1.html">to page1</a>
+  <script type="text/template" id="tpl">
+        {{if user}}
+        <h2>{{user.name}}</h2>
+        {{/if}}
+    </script>
 </body>
 </html>

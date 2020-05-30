@@ -5,6 +5,7 @@ const utils = require('./util')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 //静态资源输出
 const copyWebpackPlugin = require("copy-webpack-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve (dir) {
   return path.resolve(__dirname, '..', dir)
@@ -26,12 +27,13 @@ const createLintRule = () => ({
 function fecthMPA () {
   let entry = {},
     htmlWebpackPlugins = [];
-  const entryFiles = glob.sync(resolve('src/views/*/index.js'))
-
+  const entryFiles = glob.sync(resolve('src/views/**/index.js'))
+  console.log('entryFiles===',entryFiles)
   entryFiles.forEach(file => {
-    const match = file.match(/src\/views\/(\w+)\/index\.js$/)
+    const match = file.match(/src\/views\/(.+)\/index\.js$/)
+    // const match = file.match(/src\/views\/(\w+)\/index\.js$/)
     const pageName = match && match[1]
-
+    console.log('pagename=====', pageName)
     entry[pageName] = file;
 
     htmlWebpackPlugins.push(
@@ -76,6 +78,7 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
+      'vue$': 'vue/dist/vue.esm.js', // 用 webpack 1 时需用 'vue/dist/vue.common.js'
       '@': resolve('src')
     }
   },
@@ -91,6 +94,14 @@ module.exports = {
         }, {
           loader: 'expose-loader',
           options: '$'
+        }]
+      },
+      {
+        // https://blog.csdn.net/weixin_36185028/article/details/81114827
+        test: require.resolve('vue'), //require.resolve 用来获取模块的绝对路径
+        use: [{
+          loader: 'expose-loader',
+          options: 'Vue'
         }]
       },
       {
@@ -123,10 +134,16 @@ module.exports = {
             minimize: process.env.NODE_ENV === 'production'
           }
         }
+      }, {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader'
+        }
       }
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new copyWebpackPlugin({
       patterns: [
         { // 将根目录static中的所有内容复制到dist/static目录下
