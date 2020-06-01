@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif";
+}
+html,
+body {
+  font-size: 14px;
+  color: #212121;
+}
+ul,
+ol,
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.dfx {
+  display: flex;
+}
+
+.dfx-spb {
+  justify-content: space-between;
+}
+
+.dfx-inl-c {
+  justify-content: center;
+}
+
+.dfx-vert-c {
+  align-items: center;
+}
+
+.dfx-flex-self {
+  flex: 1;
+}
+
+.ml5 {
+  margin-left: $ad-base-size;
+}
+
+.ml10 {
+  margin-left: $ad-base-size * 2;
+}
+
+.ml15 {
+  margin-left: $ad-base-size * 3;
+}
+
+.ml20 {
+  margin-left: $ad-base-size * 4;
+}

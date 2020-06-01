@@ -4,7 +4,6 @@
   "description": "多页面应用",
   "main": "index.js",
   "scripts": {
-    "test": "webpack-dev-server",
     "start": "npm run dev",
     "build": "node build/build.js",
     "dev": "webpack-dev-server --open --progress --config build/webpack.dev.conf.js"
@@ -23,8 +22,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",

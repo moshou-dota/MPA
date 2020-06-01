@@ -30,10 +30,7 @@ exports.cssLoaders = function (options = {}) {
 
     if (options.extract) {
       return [{
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          publicPath: '../../' // 配置分离出来的css中的背景图片路径
-        }
+        loader: MiniCssExtractPlugin.loader
       }].concat(loaders)
     } else {
       return ['style-loader'].concat(loaders)

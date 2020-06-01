@@ -26,10 +26,10 @@ const createLintRule = () => ({
 function fecthMPA () {
   let entry = {},
     htmlWebpackPlugins = [];
-  const entryFiles = glob.sync(resolve('src/views/*/index.js'))
+  const entryFiles = glob.sync(resolve('src/views/**/index.js'))
 
   entryFiles.forEach(file => {
-    const match = file.match(/src\/views\/(\w+)\/index\.js$/)
+    const match = file.match(/src\/views\/(.+)\/index\.js$/)
     const pageName = match && match[1]
 
     entry[pageName] = file;
@@ -114,16 +114,16 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      // {
-      //   test: /\.html$/,
-      //   use: {
-      //     loader: 'html-loader',
-      //     options: {
-      //       attributes: true,
-      //       minimize: process.env.NODE_ENV === 'production'
-      //     }
-      //   }
-      // }
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attributes: true,
+            minimize: process.env.NODE_ENV === 'production'
+          }
+        }
+      }
     ]
   },
   plugins: [

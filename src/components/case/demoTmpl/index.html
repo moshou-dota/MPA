@@ -1,0 +1,29 @@
+<!-- 案例样式demo -->
+{{#if demoList.length}}
+{{#each demoList}}
+<div class="case-card" data-name="{{title}}">
+  <div class="position-relative case-header">
+    <div class="case-header-extra position-absolute"></div>
+  </div>
+  <div class="case-body">
+    <div class="title">{{title}}</div>
+    <p class="case-desc text-truncate">{{desc}}</p>
+    <div class="case-tags">
+      {{#each tags}}
+      <span class="tag">{{this}}</span>
+      {{/each}}
+    </div>
+    <div class="case-data dfx dfx-spb">
+      {{#each content}}
+      <div class="case-data-item text-center">
+        <span class="num">{{num}}</span><span class="unit">{{unit}}</span>
+        <div class="tip">{{name}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else}}
+<div>暂无数据</div>
+{{/if}}

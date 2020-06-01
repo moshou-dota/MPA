@@ -1,0 +1,22 @@
+// 定义本项目常用变量
+$ad-base-size: 5px;
+
+$ad-active-color: #00A1D6;
+
+$ad-min-gride-width: 980px;
+
+// 复写bootstrap样式
+// 禁用bootstrap自身的媒体查询，注意摆放顺序
+$enable-grid-classes: false;
+
+$primary: $ad-active-color;
+
+$breadcrumb-divider: quote(">");
+// 将常见处理提取为混入，方便复用
+@mixin box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@import "bootstrap/scss/bootstrap.scss";
